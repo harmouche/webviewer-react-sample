@@ -10,12 +10,18 @@ const App = () => {
     WebViewer(
       {
         path: '/webviewer/lib',
-        initialDoc: '/files/PDFTRON_about.pdf',
+        initialDoc: "authorization-form.pdf",
+        config: "./authorization-form.pdf"
+        // 'https://symply-resources.s3-us-west-2.amazonaws.com/Symply+MSA+v4.pdf'
+        // 'https://files.floridados.gov/media/693801/florida-constitution.pdf'
+        // 'https://pdftron.s3.amazonaws.com/downloads/pl/webviewer-demo.pdf'
+        // '/files/PDFTRON_about.pdf',
       },
       viewer.current,
     ).then((instance) => {
       const { docViewer, Annotations } = instance;
       const annotManager = docViewer.getAnnotationManager();
+      // instance.loadDocument('https://files.floridados.gov/media/693801/florida-constitution.pdf', { filename: 'florida-constitution.pdf' });
 
       docViewer.on('documentLoaded', () => {
         const rectangleAnnot = new Annotations.RectangleAnnotation();
